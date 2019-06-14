@@ -1,0 +1,112 @@
+<div class="container">
+  <!--Jumbotron-->
+  <div class="jumbotron text-center">
+    <h1 class="display-4" id="app-title">Munchy Burger <img src="/assets/img/cheeseburger.png"></h1>
+    <p class="lead">Hungry? Don't overthink it.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card border">
+        <div class="card-header text-white">
+         Can I take your order?
+        </div>
+        <!--Create/add burger form-->
+        <div class="card-body">
+          <form class="create-form">
+            <div class="form-group">
+              <label for="bu">Place order here:</label>
+              <input type="text" class="form-control" id="bu" name="burger_name" placeholder="">
+            </div>
+            <button class="btn" id="button" type="submit">Place order</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+ <div class="row mt-4">
+    <div class="col-md-6 mt-4">
+      <div class="card border border-primary">
+        <div class="card-header bg-primary text-white">
+         Burgers
+        </div>
+        <!--Div to hold burgers that have not been devoured yet-->
+        <div class="card-body">
+            <ul>
+              {{#each burgers}}
+                {{#unless devoured}}
+                  {{> burgers/burger-block devour=false}}
+                <br>  
+                {{/unless}}
+              {{/each}}
+              
+            </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="col-md-6 mt-4">
+      <div class="card devoured-card">
+        <div class="card-header text-white" id="devoured-card-header">
+         Devoured burgers
+        </div>
+        <!--When a burger has been devoured, put burger here-->
+        <div class="card-body">
+          <ul>
+            {{#each burgers}}
+              {{#if devoured}}
+                {{> burgers/burger-devoured devour=true}}
+                <br>
+              {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+ </div>
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <p class="footer-links">
+            <a id="home" href="#" >Home</a>
+            ·
+            <a href="#">About</a>
+            ·
+            <a href="contact.html">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Munchy Burger &copy; 2019 All Rights Reserved</p>
+    </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Av. Eugenio Garza Sada 2501 Sur </span> Monterrey, Mexico</p>
+            </div>
+            <br>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>ITESM Bootcamp</p>
+            </div>
+
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>About the Project</span>
+                    Munchy Burger is a simple program that helps you track the Burgers you want to eat... or Devour!.
+            </p>
+
+            
+
+        </div>
+
+    </footer>
