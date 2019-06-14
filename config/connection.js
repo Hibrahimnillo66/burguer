@@ -1,5 +1,12 @@
 var mysql = require("mysql");
 
+//Define database connection properties (host, user, password, and database name)
+//Use production database when deployed.
+if (process.env.JAWSDB_URL) {
+  //Heroku deployment
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
